@@ -1,9 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"log"
+	"telephone/internal/server"
+
+	"github.com/joho/godotenv"
+)
 
 func main() {
-	var name string
-	name = "alireza"
-	fmt.Println(name)
+	err := godotenv.Load()
+
+	if err != nil {
+		log.Fatal("error .env file is not loading")
+	}
+
+	server.CreateServer()
 }
