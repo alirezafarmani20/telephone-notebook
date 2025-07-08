@@ -29,12 +29,3 @@ This project is a simple phonebook application built using the Go programming la
 
 ```bash
 go run main.go
-
-
-|Method	|Endpoint	|Description                     |
-|-------|-----------|---------------------------|
-| GET	    | /users	    | Retrieve all contacts      |
-| Get       | /users/:id    | get user by id             |
-| POST	    | /users	    | Add a new contact          |
-| PUT	    | /users/:id	| Update contact by ID       |
-| DELETE    | /users/:id	| Delete contact by ID       |
