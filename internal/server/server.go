@@ -3,6 +3,7 @@ package server
 import (
 	"os"
 	"telephone/internal/api"
+	"telephone/internal/middlewares"
 
 	"github.com/gofiber/fiber/v2"
 )
@@ -10,6 +11,8 @@ import (
 func CreateServer() {
 	app := fiber.New()
 
+	app.Use(middlewares.TimeLogger)
+	
 	port := os.Getenv("PORT")
 	// create test route
 	app.Get("/health", func(ctx *fiber.Ctx) error {
