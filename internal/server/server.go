@@ -14,6 +14,9 @@ func CreateServer() {
 	app.Get("/health", func(ctx *fiber.Ctx) error {
 		return ctx.SendString("hello world")
 	})
+
+	// create routes for user
+	
 	
 	app.Listen(port)
 }

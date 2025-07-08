@@ -18,6 +18,18 @@ func GetUsers(ctx *fiber.Ctx) error {
 	return ctx.JSON(users)
 }
 
+func GetUserById(ctx *fiber.Ctx) error {
+	// get user by id
+	id := ctx.Params("id")
+	var user modules.User
+	if err := database.Database.First(id, &user).Error; err != nil {
+		log.Fatal("error! user not found", err)
+		return ctx.SendStatus(404)
+	}
+	database.Database.Select(&user)
+	return ctx.JSON(user)
+}
+
 func CreateUser(ctx *fiber.Ctx) error {
 	// create use
 	user := new(modules.User)
