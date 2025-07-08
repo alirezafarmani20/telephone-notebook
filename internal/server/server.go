@@ -1,11 +1,19 @@
 package server
 
-import "github.com/gofiber/fiber/v2"
+import (
+	"os"
+
+	"github.com/gofiber/fiber/v2"
+)
 
 func CreateServer() {
 	app := fiber.New()
 
-	app.Get("/health" , func(c *fiber.Ctx) error {
-		return c.SendString("hello world")
+	port := os.Getenv("PORT")
+	// create test route
+	app.Get("/health", func(ctx *fiber.Ctx) error {
+		return ctx.SendString("hello world")
 	})
+	
+	app.Listen(port)
 }

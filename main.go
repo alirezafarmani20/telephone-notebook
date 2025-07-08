@@ -9,10 +9,8 @@ import (
 
 func main() {
 	err := godotenv.Load()
-
 	if err != nil {
 		log.Fatal("error .env file is not loading")
 	}
-
 	server.CreateServer()
 }
