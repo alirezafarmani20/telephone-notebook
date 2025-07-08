@@ -22,7 +22,7 @@ func GetUserById(ctx *fiber.Ctx) error {
 	// get user by id
 	id := ctx.Params("id")
 	var user modules.User
-	if err := database.Database.First(id, &user).Error; err != nil {
+	if err := database.Database.First(&user, id).Error; err != nil {
 		log.Fatal("error! user not found", err)
 		return ctx.SendStatus(404)
 	}
@@ -45,7 +45,7 @@ func UpdateUser(ctx *fiber.Ctx) error {
 	// updating user
 	id := ctx.Params("id")
 	var user modules.User
-	if err := database.Database.First(id, &user).Error; err != nil {
+	if err := database.Database.First(&user, id).Error; err != nil {
 		log.Fatal("error ! user not updated", err)
 		return ctx.SendStatus(404)
 	}
@@ -61,7 +61,7 @@ func DeleteUser(ctx *fiber.Ctx) error {
 	// delete user
 	id := ctx.Params("id")
 	var user modules.User
-	if err := database.Database.First(id, &user).Error; err != nil {
+	if err := database.Database.First(&user, id).Error; err != nil {
 		log.Fatal("error! user not deleted")
 		return ctx.SendStatus(404)
 	}

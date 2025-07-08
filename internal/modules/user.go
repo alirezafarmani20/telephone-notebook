@@ -7,5 +7,5 @@ type User struct {
 	// create a module for users
 	FirstName   string `gorm:"not null"`
 	LastName    string `gorm:"not null"`
-	PhoneNumber int64  `gorm:"unique"`
+	PhoneNumber string  `gorm:"unique"`
 }
